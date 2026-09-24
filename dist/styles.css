@@ -82,6 +82,14 @@ h1 em { display: block; color: var(--orange); font-style: normal; }
 .repo-link:hover { color: var(--lime); }
 .featured .repo-link:hover { color: var(--paper); }
 
+.contact-section { padding: clamp(5rem, 9vw, 9rem) 4vw; color: var(--paper); background: var(--ink); }
+.contact-section .eyebrow { color: var(--lime); }
+.contact-grid { display: grid; grid-template-columns: 1fr .72fr; gap: clamp(3rem, 8vw, 10rem); align-items: end; }
+.contact-grid h2 { margin: 0; font-family: var(--display); font-size: clamp(5rem, 13vw, 13rem); line-height: .78; letter-spacing: -.055em; text-transform: uppercase; }
+.contact-copy p { max-width: 620px; color: #b8b9bc; font-size: clamp(1rem, 1.4vw, 1.25rem); }
+.contact-copy a { padding: 1rem 0; display: flex; justify-content: space-between; gap: 2rem; border-block: 1px solid rgba(255,255,255,.55); color: var(--orange); font-weight: 900; letter-spacing: .04em; }
+.contact-copy a:hover { color: var(--lime); }
+
 footer { padding: 6rem 4vw 2rem; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: end; }
 .footer-kicker { margin-bottom: 1rem; font-size: .75rem; font-weight: 900; letter-spacing: .16em; }
 footer h2 { margin: 0; color: var(--orange); font-size: clamp(5rem, 14vw, 13rem); }
@@ -94,6 +102,7 @@ footer h2 { margin: 0; color: var(--orange); font-size: clamp(5rem, 14vw, 13rem)
   .hero-proof { min-height: 440px; transform: none; box-shadow: 10px 10px 0 var(--orange); }
   .tech-intro { position: static; }
   .project-heading { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
   .site-header { min-height: 64px; }
