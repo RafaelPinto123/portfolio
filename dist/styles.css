@@ -90,10 +90,24 @@ h1 em { display: block; color: var(--orange); font-style: normal; }
 .project-gallery { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(320px, 72%); gap: 1rem; overflow-x: auto; overscroll-behavior-inline: contain; padding: 0 0 1rem; scroll-snap-type: inline mandatory; scrollbar-color: var(--orange) rgba(255,255,255,.15); scrollbar-width: thin; }
 .project-gallery figure { min-width: 0; margin: 0; overflow: hidden; background: #050609; border: 1px solid rgba(255,255,255,.24); scroll-snap-align: start; }
 .featured .project-gallery figure { border-color: rgba(9,11,16,.42); }
-.project-gallery img { width: 100%; height: clamp(260px, 42vw, 580px); display: block; object-fit: cover; object-position: top center; background: #050609; }
+.gallery-image-link { display: block; height: clamp(260px, 42vw, 580px); background: #050609; cursor: zoom-in; }
+.gallery-image-link:focus-visible { outline: 3px solid var(--lime); outline-offset: -3px; }
+.project-gallery img { width: 100%; height: 100%; display: block; object-fit: contain; object-position: center; padding: .35rem; background: #050609; transition: transform .25s ease, opacity .25s ease; }
+.gallery-image-link:hover img { opacity: .86; transform: scale(1.015); }
 .project-gallery figure.portrait img { object-fit: contain; }
 .project-gallery figcaption { padding: .8rem 1rem; color: #d6d6d8; font-size: .8rem; font-weight: 800; letter-spacing: .04em; }
 .featured .project-gallery figcaption { color: var(--paper); background: var(--ink); }
+.image-lightbox { width: min(96vw, 1500px); max-width: none; height: min(94svh, 1100px); max-height: none; padding: 0; border: 1px solid rgba(255,255,255,.28); background: rgba(5,6,9,.98); color: var(--paper); }
+.image-lightbox::backdrop { background: rgba(0,0,0,.86); backdrop-filter: blur(8px); }
+.lightbox-frame { position: relative; width: 100%; height: 100%; display: grid; grid-template-rows: 1fr auto auto; place-items: center; padding: clamp(2.5rem, 5vw, 4rem) clamp(.8rem, 3vw, 2rem) 1rem; }
+.lightbox-stage { width: 100%; height: 100%; min-height: 0; display: grid; place-items: center; overflow: auto; overscroll-behavior: contain; }
+.lightbox-image { width: 100%; height: 100%; min-height: 0; display: block; object-fit: contain; transform-origin: center; transition: transform .18s ease; cursor: zoom-in; }
+.lightbox-controls { display: flex; gap: .4rem; margin-top: .7rem; }
+.lightbox-controls button { min-width: 2.4rem; height: 2.2rem; padding: 0 .65rem; border: 1px solid rgba(255,255,255,.35); border-radius: .45rem; color: var(--paper); background: rgba(9,11,16,.9); font: 800 .85rem var(--body); cursor: pointer; }
+.lightbox-controls button:hover, .lightbox-controls button:focus-visible { color: var(--ink); background: var(--lime); }
+.lightbox-caption { max-width: 90%; margin: .7rem 0 0; color: #d6d6d8; font-size: .8rem; text-align: center; }
+.lightbox-close { position: absolute; top: .7rem; right: .7rem; z-index: 1; width: 2.2rem; height: 2.2rem; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; color: var(--paper); background: rgba(9,11,16,.8); font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.lightbox-close:hover, .lightbox-close:focus-visible { color: var(--ink); background: var(--lime); }
 
 .contact-section { padding: clamp(5rem, 9vw, 9rem) 4vw; color: var(--paper); background: var(--ink); }
 .contact-section .eyebrow { color: var(--lime); }
@@ -149,7 +163,11 @@ footer h2 { margin: 0; color: var(--orange); font-size: clamp(5rem, 14vw, 13rem)
   .gallery-label { align-items: flex-start; font-size: .62rem !important; }
   .gallery-label span { display: none; }
   .project-gallery { grid-auto-columns: minmax(82%, 90%); gap: .7rem; }
-  .project-gallery img { height: clamp(220px, 68vw, 380px); }
+  .gallery-image-link { height: clamp(220px, 68vw, 380px); }
+  .image-lightbox { width: 94vw; height: 88svh; }
+  .lightbox-frame { padding: 2.8rem .55rem .7rem; }
+  .lightbox-controls { margin-top: .45rem; }
+  .lightbox-caption { font-size: .7rem; }
   .contact-grid h2 { font-size: clamp(4rem, 19vw, 7rem); }
   footer { grid-template-columns: 1fr; padding-inline: 5vw; }
   footer h2 { font-size: clamp(4rem, 19vw, 7rem); }
